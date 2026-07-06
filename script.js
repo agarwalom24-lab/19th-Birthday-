@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
       </svg>`;
   }
 
+  // A small, delicate 5-petal flower bloom, in one of a few soft palettes
+  function createFlowerSVG() {
+    const palettes = [
+      { petal: '#f6d9d9', center: '#e6cba0' },
+      { petal: '#ded3e8', center: '#f6d9d9' },
+      { petal: '#fdf1e6', center: '#cdd9c4' },
+      { petal: '#f1e0e6', center: '#cba36b' }
+    ];
+    const p = palettes[Math.floor(Math.random() * palettes.length)];
+    return `
+      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(30,30)">
+          <ellipse cx="0" cy="-16" rx="9" ry="14" fill="${p.petal}" opacity="0.92"/>
+          <ellipse cx="0" cy="-16" rx="9" ry="14" fill="${p.petal}" opacity="0.92" transform="rotate(72)"/>
+          <ellipse cx="0" cy="-16" rx="9" ry="14" fill="${p.petal}" opacity="0.92" transform="rotate(144)"/>
+          <ellipse cx="0" cy="-16" rx="9" ry="14" fill="${p.petal}" opacity="0.92" transform="rotate(216)"/>
+          <ellipse cx="0" cy="-16" rx="9" ry="14" fill="${p.petal}" opacity="0.92" transform="rotate(288)"/>
+          <circle cx="0" cy="0" r="7" fill="${p.center}"/>
+        </g>
+      </svg>`;
+  }
+
   function createButterflySVG() {
     return `
       <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
@@ -63,6 +85,28 @@ document.addEventListener('DOMContentLoaded', () => {
     el.style.animation = `twinkle ${duration}s ease-in-out infinite`;
     floatingLayer.appendChild(el);
     setTimeout(() => el.remove(), duration * 1000 * 3);
+  }
+
+  function spawnFlower() {
+    const el = document.createElement('div');
+    el.className = 'flower';
+    el.innerHTML = createFlowerSVG();
+    const size = 28 + Math.random() * 26;
+    el.style.width = `${size}px`;
+    el.style.height = `${size}px`;
+    el.style.top = `${5 + Math.random() * 80}vh`;
+
+    // alternate: drift in from the left or the right, for gentle variety
+    const fromLeft = Math.random() > 0.5;
+    el.style.left = fromLeft ? '-8vw' : 'auto';
+    el.style.right = fromLeft ? 'auto' : '-8vw';
+    el.style.setProperty('--drift-x', fromLeft ? '116vw' : '-116vw');
+    el.style.setProperty('--rot', `${(Math.random() - 0.5) * 60}deg`);
+
+    const duration = 16 + Math.random() * 8;
+    el.style.animation = `driftAcross ${duration}s ease-in-out forwards`;
+    floatingLayer.appendChild(el);
+    setTimeout(() => el.remove(), duration * 1000);
   }
 
   function spawnButterfly() {
