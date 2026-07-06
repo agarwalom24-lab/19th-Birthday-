@@ -543,6 +543,8 @@ body {
   padding: 2.2rem 1.8rem;
   opacity: 0;
   transition: opacity 0.8s ease 0.9s;
+  height: 100%;
+  overflow-y: auto;
 }
 
 /* OPEN STATE */
@@ -557,8 +559,8 @@ body {
 }
 
 .envelope.open .envelope-letter {
-  height: 340px;
-  bottom: 46%;
+  height: 420px;
+  bottom: 40%;
   transform: translateY(0) scale(1.06);
   z-index: 5;
   box-shadow: 0 30px 60px rgba(120, 90, 70, 0.22);
@@ -650,12 +652,20 @@ body {
   to   { transform: rotate(360deg); }
 }
 
+.paper-content::-webkit-scrollbar {
+  width: 5px;
+}
+.paper-content::-webkit-scrollbar-thumb {
+  background: var(--gold-soft);
+  border-radius: 10px;
+}
+
 /* =========================================================
    10. RESPONSIVE
    ========================================================= */
 @media (max-width: 640px) {
   .glass-card { padding: 2.2rem 1.6rem; }
-  .envelope.open .envelope-letter { height: 300px; }
+  .envelope.open .envelope-letter { height: 380px; }
   .music-toggle { bottom: 1.2rem; right: 1.2rem; width: 46px; height: 46px; }
   .close-letter-btn { top: 1.2rem; right: 1.2rem; }
 }
