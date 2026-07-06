@@ -543,7 +543,7 @@ body {
   padding: 2.2rem 1.8rem;
   opacity: 0;
   transition: opacity 0.8s ease 0.9s;
-  max-height: 220px;
+  max-height: 80vh;
   overflow-y: auto;
 }
 
@@ -567,9 +567,14 @@ body {
 }
 
 .envelope.open .envelope-letter {
-  height: 420px;
-  bottom: 40%;
-  transform: translateY(0) scale(1.06);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: min(88vw, 440px);
+  height: auto;
+  max-height: 80vh;
+  bottom: auto;
   z-index: 5;
   box-shadow: 0 30px 60px rgba(120, 90, 70, 0.22);
 }
