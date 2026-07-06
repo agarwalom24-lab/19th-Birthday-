@@ -270,13 +270,13 @@ body {
 }
 
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6rem 1.5rem 4rem;
+  padding: 4rem 1.5rem 1rem;
 }
 
 .hero-kicker {
@@ -334,11 +334,11 @@ body {
    6. GLASS CARD — the letter invitation card
    ========================================================= */
 .letter-section {
-  min-height: 70vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem 8rem;
+  padding: 1rem 1.5rem 4rem;
 }
 
 .glass-card {
