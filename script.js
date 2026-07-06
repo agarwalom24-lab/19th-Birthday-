@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typewriterText = document.getElementById('typewriterText');
 
   // ---- PLACE YOUR LETTER TEXT HERE ----
-  const LETTER_TEXT = "bsbcuwbdwhqofjwepfjc";
+  const LETTER_TEXT = "PASTE MY LETTER HERE";
   // --------------------------------------
 
   let typewriterStarted = false;
